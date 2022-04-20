@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View, FlatList, StatusBar } from 'react-native';
+import { StyleSheet, View, FlatList, StatusBar } from 'react-native';
 import { CoffeeHeader } from "./src/components/CoffeeHeader";
 import { CoffeeItem } from "./src/components/CoffeeItem";
 import { SeparatorItem } from "./src/components/SeparatorItem";
-import { Coffee, coffeeList } from "./src/mocks/coffeeList";
+import { coffeeList } from "./src/mocks/coffeeList";
 
 export default function App() {
   const renderItem = ({ item }) => {
