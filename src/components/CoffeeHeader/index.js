@@ -6,11 +6,12 @@ import {
   StyleSheet,
 } from "react-native";
 
+import { Feather } from '@expo/vector-icons';
 import cover from "../../../assets/coffee-cover.jpg";
 
 const dimensions = {
-  with: 900,
-  height: 450,
+  with: 1280,
+  height: 812,
 };
 
 const ratio = dimensions.height / dimensions.with;
@@ -24,7 +25,10 @@ export function CoffeeHeader() {
     <>
       <Image style={{ width, height }} source={cover} />
       <View style={styles.container}>
-        <Text style={styles.title}>Tipos de café</Text>
+          <Text style={styles.title}>
+            <Feather name="coffee" size={30} color="white" /> 
+            Tipos de café
+          </Text>
       </View>
     </>
   );
@@ -32,11 +36,11 @@ export function CoffeeHeader() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#6F4E37",
-    paddingVertical: 8,
+    position: "absolute",
+    paddingVertical: 100,
+    width: "100%",
     marginBottom: 16,
   },
-
   title: {
     alignSelf: "center",
     fontSize: 36,
