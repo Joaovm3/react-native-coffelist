@@ -3,7 +3,7 @@ import { View, Image, StyleSheet, Text } from "react-native";
 export function CoffeeItem({ name, image, description }) {
   return (
     <View style={styles.container}>
-      <Image style={{ width: 120, height: 100 }} source={image} />
+      <Image style={styles.image} source={image} />
       <View style={styles.content}>
         <Text style={styles.title}>{name}</Text>
         <Text numberOfLines={5} style={styles.description}>
@@ -15,6 +15,10 @@ export function CoffeeItem({ name, image, description }) {
 }
 
 const styles = StyleSheet.create({
+  image: {
+    width: 120, 
+    height: 120,
+  },
   container: {
     flexDirection: "row",
     backgroundColor: "#fff",
@@ -27,7 +31,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 16,
   },
-
   title: {
     fontSize: 20,
     fontWeight: "bold",
