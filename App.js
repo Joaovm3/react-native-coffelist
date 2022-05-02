@@ -1,4 +1,4 @@
-import { StyleSheet, View, FlatList, StatusBar } from 'react-native';
+import { StyleSheet, View, FlatList, StatusBar, Text } from 'react-native';
 import { CoffeeHeader } from "./src/components/CoffeeHeader";
 import { CoffeeItem } from "./src/components/CoffeeItem";
 import { SeparatorItem } from "./src/components/SeparatorItem";
@@ -9,15 +9,31 @@ export default function App() {
     return <CoffeeItem {...item} />;
   }
 
+  const keyExtractor = (item) => item.name;
+
   return (
     <View style={styles.container}>
       <StatusBar hidden={true}/>
       <FlatList
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={CoffeeHeader}
+        ListFooterComponent={() => { 
+          return (
+            <View>
+              <SeparatorItem description={'Cafés Especiais'}/>
+              <FlatList
+                ItemSeparatorComponent={SeparatorItem}
+                showsVerticalScrollIndicator={false}
+                data={coffeeList.specialtyCoffes}
+                keyExtractor={keyExtractor}
+                renderItem={renderItem}
+              />
+            </View>
+          )
+        }}
         ItemSeparatorComponent={SeparatorItem}
-        data={coffeeList}
-        keyExtractor={(item) => item.name}
+        data={coffeeList.coffes}
+        keyExtractor={keyExtractor}
         renderItem={renderItem}
       />
     </View>

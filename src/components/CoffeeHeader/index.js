@@ -6,6 +6,8 @@ import {
   StyleSheet,
 } from "react-native";
 
+import { coffeeList } from "../../mocks/coffeeList";
+
 import { Feather } from '@expo/vector-icons';
 import cover from "../../../assets/coffee-cover.jpg";
 
@@ -27,7 +29,7 @@ export function CoffeeHeader() {
       <View style={styles.container}>
           <Text style={styles.title}>
             <Feather name="coffee" size={30} color="white" /> 
-            Tipos de café
+            {coffeeList.title}
           </Text>
       </View>
     </>

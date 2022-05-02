@@ -1,9 +1,17 @@
-import { View, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
-export function SeparatorItem() {
+export function SeparatorItem({ description }) {
   return (
     <View style={{flexDirection: 'row' }}>
-      <View style={styles.line} />
+       {description ? (
+        <View style={styles.description}>
+        <View style={styles.halfLine} />  
+          <Text style={styles.text}> {description} </Text>
+        <View style={styles.halfLine} />  
+        </View> 
+      ) : (
+        <View style={styles.line} />
+      )}
     </View>
   );
 }
@@ -17,5 +25,22 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: "#b4835f97", 
     marginHorizontal: 20,
-  }
+  },
+  halfLine: {
+    width: '32%',
+    height: 2,
+    backgroundColor: "#4A342F", 
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#4A342F",
+  },
+  description: {
+    flex: 1,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginHorizontal: 20,
+  },
 });
